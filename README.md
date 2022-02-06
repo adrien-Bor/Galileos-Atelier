@@ -2,7 +2,7 @@
 
 [new game](https://user-images.githubusercontent.com/44776186/152706675-ea03d8fd-137c-4545-993b-e6e08ccd1126.png)
 
-Game made with Unity during a GameJAm organised by IPParis.
+Follow up of a game made with Unity during a GameJAm organised by IPParis.
 
 Plot: Help Galileo connect the light source to the lense through his dark observatory. You can alter the light path by rotating the mirrors
 
