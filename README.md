@@ -1,4 +1,6 @@
-# Galileos-Atelier
+# Galileos-Atelier!
+
+[new game](https://user-images.githubusercontent.com/44776186/152706675-ea03d8fd-137c-4545-993b-e6e08ccd1126.png)
 
 Game made with Unity during a GameJAm organised by IPParis.
 
