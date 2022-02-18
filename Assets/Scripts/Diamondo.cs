@@ -33,8 +33,8 @@ public class Diamondo : MonoBehaviour
     void Update()
     {
         //print(transform.position);
-        if (doPrint)
-            print(crystalHit);
+        //if (doPrint)
+        //    print(crystalHit);
         if (crystalHit)
         {
             GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
@@ -63,6 +63,6 @@ public class Diamondo : MonoBehaviour
     public void NotHitByRay()
     {
         crystalHit = false;
-        print("crystal hit");
+        //print("crystal hit");
     }
 }

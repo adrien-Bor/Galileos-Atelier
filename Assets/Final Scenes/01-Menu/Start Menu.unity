@@ -134,10 +134,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1005665637}
+    - target: {fileID: 1802393789, guid: b0d74c67979a2984bb448a8145ecac74, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4990600066125874477, guid: b0d74c67979a2984bb448a8145ecac74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1005665637}
+    - target: {fileID: 4990600066125874477, guid: b0d74c67979a2984bb448a8145ecac74, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4990600066859193667, guid: b0d74c67979a2984bb448a8145ecac74, type: 3}
       propertyPath: m_Name
       value: Start Canvas

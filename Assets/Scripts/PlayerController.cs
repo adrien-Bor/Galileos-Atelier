@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Information")]
     public float InputX; // Range between -1 and 1 for horizontal axis (sides).
     public float InputZ; // Range between -1 and 1 for vertical axis (forward).
-    public Vector3 dir;
+    public Vector3 dir = Vector3.zero;
     public float angle;
 
     [Header("Thresholds of movement")]

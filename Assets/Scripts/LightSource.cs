@@ -44,10 +44,10 @@ public class LightSource : MonoBehaviour
 
 
         //Draw the beam trajectory in debug mode
-   //     for ( int i = light_path.Count - 1; i > 0; --i )
-			//Debug.DrawLine(light_path[i], light_path[i-1], Color.yellow);
-		
-		//print(beams[1].transform.position);
+        //for (int i = light_path.Count - 1; i > 0; --i)
+        //    Debug.DrawLine(light_path[i], light_path[i - 1], Color.yellow);
+
+        //print(beams[1].transform.position);
     } 
 
 	//Call this first because beams won't be destroyed until end of frame
@@ -68,8 +68,16 @@ public class LightSource : MonoBehaviour
 		beams.Clear();
 
 		Vector3 dir = source_direction;
+		Vector3 new_dir = Vector3.zero;
 		bool ray_absorbed = false;
 
+		GameObject[] diamonds;
+		diamonds = GameObject.FindGameObjectsWithTag("crystal");
+
+		foreach (GameObject diamond in diamonds)
+		{
+			diamond.GetComponent<Diamondo>().NotHitByRay();
+		}
 
 		while (!ray_absorbed)
 		{
@@ -106,17 +114,11 @@ public class LightSource : MonoBehaviour
 				}
 
                 //beams.Add(beam);
-				//print(!isCrystalHit);
-				if (!isCrystalHit)
-				{
-					light_path.Add(hit.point);
-				}
-                else
-                {
-					//print(dir);
-                    light_path.Add(hit.point+dir);
-                }
-                //print(light_path.Count);
+                //print(!isCrystalHit);
+
+    //            print("hit: "+hit.point);
+				//GameObject mir1 = GameObject.Find("Mirror (1)");
+				//print(mir1.GetComponent<Mirror>().d);
 
                 //Stop the ray if it does not hit a mirror
                 if (hit.collider.gameObject.GetComponent<Mirror>() == null)
@@ -130,8 +132,24 @@ public class LightSource : MonoBehaviour
 				{
 					//Find the new direction
 					Mirror mir = hit.collider.gameObject.GetComponent<Mirror>();
-					dir = Vector3.Dot(dir, mir.d) * mir.d - Vector3.Dot(dir, mir.n) * mir.n;
+					//print("DIRECTION: "+dir);
+					//print(mir.d);
+					//print(mir.n);
+					new_dir = Vector3.Dot(dir, mir.d) * mir.d - Vector3.Dot(dir, mir.n) * mir.n;
+					//print(new_dir);
 				}
+				if (!isCrystalHit)
+				{
+					light_path.Add(hit.point);
+					light_path.Add(hit.point + new_dir*2);
+				}
+				else
+				{
+					//print(dir);
+					light_path.Add(hit.point + dir);
+				}
+				dir = new_dir;
+
 			}
 			else
 			{
@@ -140,26 +158,26 @@ public class LightSource : MonoBehaviour
 			}
 
 			//Prevent infinite loops
-			if(light_path.Count > 20)
+			if(light_path.Count > 100)
 				ray_absorbed = true;
 
 
 		}
 
-		// print("light path count: "+light_path.Count);
-
-		for (int i = 0; i < light_path.Count-1; ++i)
+        for (int i = 0; i < light_path.Count-1; ++i)
         {
             //Spawn the beam of light
-            Vector3 pos = (light_path[i] + light_path[i + 1]) / 2;
+            Vector3 pos = (light_path[i] + light_path[i + 1]) / 2.0f;
             Quaternion rot = Quaternion.FromToRotation(Vector3.forward, light_path[i + 1] - light_path[i])
                                          * lightBeamPrefab.transform.rotation;
             GameObject beam = Instantiate(lightBeamPrefab, pos, rot);
 
             //Resize to look like a beam
-            float length_tf = (light_path[i] - light_path[i + 1]).magnitude / 2;
-            length_tf /= (length_tf + (float)1.5) / length_tf; //black magic, don't touch
-            beam.transform.localScale += Vector3.up * (length_tf+(float)0.1);
+            float length_tf = (light_path[i] - light_path[i + 1]).magnitude / 2.0f;
+			//print(light_path[i]);
+			//print("length" + length_tf);
+			//length_tf /= (length_tf + (float)1.5) / length_tf; //black magic, don't touch
+			beam.transform.localScale = Vector3.up * (length_tf);//+(float)0.1);
             beam.transform.localScale -= ((float)9 / 10) * (Vector3.right + Vector3.forward);
 			beam.transform.localScale += Vector3.right * (float)0.3;
 			//print(beam.transform.localScale);
@@ -167,7 +185,6 @@ public class LightSource : MonoBehaviour
 			//light_path.Add(hit.point);
 			beams.Add(beam);
         }
-
         //Debug.Log("Number of bounces: " + (light_path.Count - 1));
     }
 }

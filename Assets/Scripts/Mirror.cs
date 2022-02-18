@@ -36,14 +36,14 @@ public class Mirror : MonoBehaviour
     //Rotates the mirror by an angle of π/2
     public void Rotate()
     {
-        print(lightSourceScript.update);
-        lightSourceScript.PrepareRecomputePath();
+        //print(lightSourceScript.update);
+        //lightSourceScript.PrepareRecomputePath();
         Quaternion rot = Quaternion.FromToRotation(Vector3.forward, Vector3.right);
         transform.Rotate(0,90,0,Space.World);
-
+        //transform.Translate(0, 0, -5);
         n = transform.rotation*Vector3.forward;
         d = transform.rotation*Vector3.right;
-        lightSourceScript.RecomputePath();
+        //lightSourceScript.RecomputePath();
 
     }
 }
