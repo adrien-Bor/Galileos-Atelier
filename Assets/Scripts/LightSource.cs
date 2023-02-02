@@ -132,6 +132,7 @@ public class LightSource : MonoBehaviour
 				{
 					//Find the new direction
 					Mirror mir = hit.collider.gameObject.GetComponent<Mirror>();
+					mir.isTouchedByRay = true;
 					//print("DIRECTION: "+dir);
 					//print(mir.d);
 					//print(mir.n);

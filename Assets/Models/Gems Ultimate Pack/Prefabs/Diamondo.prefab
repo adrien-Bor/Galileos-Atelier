@@ -42,9 +42,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.3820755, g: 0.71088886, b: 1, a: 1}
+  m_Color: {r: 0.504717, g: 0.768032, b: 1, a: 1}
   m_Intensity: 2.9
-  m_Range: 9.85
+  m_Range: 12.71
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -227,3 +227,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7f1f70d1658cb4fae11a4c2dfaf174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crystalHit: 0
+  doPrint: 0

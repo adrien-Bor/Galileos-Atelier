@@ -12,6 +12,8 @@ public class Mirror : MonoBehaviour
 
     LightSource lightSourceScript;
 
+    public List<GameObject> newMirrors = new List<GameObject>();
+    public bool isTouchedByRay = false;
 
     //Initializes variables
     void Awake()
@@ -33,13 +35,18 @@ public class Mirror : MonoBehaviour
         
     }
 
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
+
     //Rotates the mirror by an angle of π/2
-    public void Rotate()
+    public void Rotate(int angle = 45)
     {
         //print(lightSourceScript.update);
         //lightSourceScript.PrepareRecomputePath();
-        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, Vector3.right);
-        transform.Rotate(0,90,0,Space.World);
+        // Quaternion rot = Quaternion.FromToRotation(Vector3.forward, Vector3.right);
+        transform.Rotate(0,angle,0,Space.World);
         //transform.Translate(0, 0, -5);
         n = transform.rotation*Vector3.forward;
         d = transform.rotation*Vector3.right;
