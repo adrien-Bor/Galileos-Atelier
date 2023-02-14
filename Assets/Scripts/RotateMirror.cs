@@ -102,11 +102,6 @@ public class RotateMirror : MonoBehaviour
 
             // Ray going in the character looking direction (from the mouse)
 
-
-            float dist_max = 10e5f;
-            int index = -1;
-            print(transform.position);
-
             GameObject[] gos;
             gos = GameObject.FindGameObjectsWithTag("Mirror");
 

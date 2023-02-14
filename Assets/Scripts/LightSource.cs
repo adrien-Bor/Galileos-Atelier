@@ -104,7 +104,7 @@ public class LightSource : MonoBehaviour
 					//hit.transform.SendMessage("OpenDoor");
 					GameObject doorObj = hit.collider.gameObject;
 					MoveDoor D = doorObj.GetComponent<MoveDoor>();
-					print(D.test);
+					//print(D.test);
 					D.OpenDoor();
 					isExitDoorHit = true;
 				}
@@ -113,16 +113,10 @@ public class LightSource : MonoBehaviour
 					isExitDoorHit = false;
 				}
 
-                //beams.Add(beam);
-                //print(!isCrystalHit);
-
-    //            print("hit: "+hit.point);
-				//GameObject mir1 = GameObject.Find("Mirror (1)");
-				//print(mir1.GetComponent<Mirror>().d);
-
                 //Stop the ray if it does not hit a mirror
                 if (hit.collider.gameObject.GetComponent<Mirror>() == null)
 				{
+					print("does not hit mirror");
 					//But continue if it is a crystal or Galileo
 					if ( (!isCrystalHit)
 					&& hit.collider.gameObject.GetComponent<RotateMirror>() == null) 
@@ -130,14 +124,25 @@ public class LightSource : MonoBehaviour
 				}
 				else //Or make it bounce
 				{
+					print("does hit");
 					//Find the new direction
 					Mirror mir = hit.collider.gameObject.GetComponent<Mirror>();
+					print(Vector3.Dot(dir, mir.n));
+					// reflecte only of they are not facing the same direction
 					mir.isTouchedByRay = true;
-					//print("DIRECTION: "+dir);
-					//print(mir.d);
-					//print(mir.n);
-					new_dir = Vector3.Dot(dir, mir.d) * mir.d - Vector3.Dot(dir, mir.n) * mir.n;
-					//print(new_dir);
+					if (Vector3.Dot(dir, mir.n) >= 0.0f)
+					{
+						
+						//print("DIRECTION: "+dir);
+						//print(mir.d);
+						//print(mir.n);
+						new_dir = Vector3.Dot(dir, mir.d) * mir.d - Vector3.Dot(dir, mir.n) * mir.n;
+						//print(new_dir);
+					}
+                    else
+                    {
+						new_dir = dir;
+					}
 				}
 				if (!isCrystalHit)
 				{
