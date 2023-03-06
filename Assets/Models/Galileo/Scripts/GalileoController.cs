@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿//using System;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
+//using System.Linq;
 
 [RequireComponent(typeof(CharacterController))]
 public class GalileoController : MonoBehaviour
@@ -27,7 +29,10 @@ public class GalileoController : MonoBehaviour
     public Camera cam; // Camera
     public Animator _anim;
 
+    bool is_walking = false;
+
     private float animationSpeed;
+    private EventInstance footsteps_instance;
 
     #endregion
 
@@ -39,7 +44,11 @@ public class GalileoController : MonoBehaviour
         _controller = GetComponent<CharacterController>(); // Gets automatically the character controller associated to the player
         _anim = GetComponent<Animator>();
 
+
+        footsteps_instance = AudioManager.instance.CreateInstance(FMODEvents.instance_bizarre.footsteps);
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -76,9 +85,25 @@ public class GalileoController : MonoBehaviour
         // Uses the Character Controller API to move the player a Vector3
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _controller.Move(move * Time.deltaTime * Speed);
-        
+
+        PLAYBACK_STATE playbackState;
+        footsteps_instance.getPlaybackState(out playbackState);
+
         if (move != Vector3.zero)
+        {
+            print("move");
             this.transform.rotation = Quaternion.LookRotation(move);
+
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                footsteps_instance.start();
+            }
+        }
+
+        else
+        {
+            footsteps_instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
 
         animationSpeed = new Vector2(InputX, InputZ).sqrMagnitude;
         _anim.SetFloat("InputMagnitude", animationSpeed, 0.0f, Time.deltaTime);

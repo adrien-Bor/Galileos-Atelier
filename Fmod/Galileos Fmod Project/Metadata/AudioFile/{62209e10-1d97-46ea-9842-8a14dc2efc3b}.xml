@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{62209e10-1d97-46ea-9842-8a14dc2efc3b}">
+		<property name="assetPath">
+			<value>miror_rotation-005.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.3805215419501134</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f1f65ee4-944b-4dce-8f39-f3c6c478d449}</destination>
+		</relationship>
+	</object>
+</objects>

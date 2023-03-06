@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Mirror : MonoBehaviour
 {
+    [SerializeField] private EventReference MirorRotationSound;
+
     public Vector3 n;
     public Vector3 d;
 
@@ -51,6 +54,6 @@ public class Mirror : MonoBehaviour
         n = transform.rotation*Vector3.forward;
         d = transform.rotation*Vector3.right;
         //lightSourceScript.RecomputePath();
-
+        AudioManager.instance.PlayOneShot(MirorRotationSound, this.transform.position);
     }
 }

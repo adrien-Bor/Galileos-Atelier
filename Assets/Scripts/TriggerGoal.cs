@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class TriggerGoal : MonoBehaviour
 {
     // Audio when we success
-    [Header("Audio Goal")]
-    [SerializeField] AudioClip audioSuccess;
+    [field: Header("Audio goal")]
+    [field: SerializeField] public EventReference win { get; private set; } 
     SceneLoader sceneLoader;
 
     //[Header("Door")]
@@ -37,9 +38,9 @@ public class TriggerGoal : MonoBehaviour
 
             // Play some clip and load next scene with some delay
             // Important: At some point is the last level, so this will give error. We need to go to Success screen or menu directly
-            AudioSource.PlayClipAtPoint(audioSuccess, Camera.main.transform.position);
+            AudioManager.instance.PlayOneShot(win, this.transform.position);
             Invoke("loadNext", 2f);
-
+            
             // ==========
         }
 
@@ -59,7 +60,7 @@ public class TriggerGoal : MonoBehaviour
 
     public void loadNext()
     {
-        Debug.Log("...now!");
+        print("...now!");
         sceneLoader.LoadNextScene();
     }
 }

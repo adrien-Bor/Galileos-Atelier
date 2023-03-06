@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -23,8 +25,8 @@ public class PlayerLife : MonoBehaviour
     [Range(0f, 0.1f)] public float fadeVel = 0.05f;
     public float deathLimit = 0.01f;
 
-    [Header("Audio Life")]
-    [SerializeField] AudioClip audioDeath;
+    [field: Header("Audio life")]
+    [field: SerializeField] public EventReference death { get; private set; }
     SceneLoader sceneLoader;
 
     #endregion
@@ -101,8 +103,8 @@ public class PlayerLife : MonoBehaviour
 
             // Play some clip and load start/game over scene with some delay
             if (!isDead)
-                AudioSource.PlayClipAtPoint(audioDeath, Camera.main.transform.position);
- 
+           AudioManager.instance.PlayOneShot(death, this.transform.position);
+
             Invoke("loadGameOver", 3f);
             isDead = true;
 

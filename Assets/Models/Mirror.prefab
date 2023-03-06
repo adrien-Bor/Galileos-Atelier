@@ -110,6 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717f49fc3468d4f4abef664ac3251cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MirorRotationSound:
+    Guid:
+      Data1: -27085834
+      Data2: 1277378663
+      Data3: 1521632386
+      Data4: -344915641
+    Path: event:/SFX/miror_rotation
   n: {x: -0.707, y: 0, z: 0.707}
   d: {x: 0.707, y: 0, z: 0.707}
   translatable: 0

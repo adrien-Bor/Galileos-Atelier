@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7078456035570360686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7078456035570360687}
+  - component: {fileID: 7078456035570360684}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7078456035570360687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078456035570360686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7078456035585942023}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7078456035570360684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078456035570360686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830518d5482c59b4d9f43058d56d0486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7078456035579512047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7078456035579512044}
+  - component: {fileID: 7078456035579512045}
+  m_Layer: 0
+  m_Name: FmodEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7078456035579512044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078456035579512047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7078456035585942023}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7078456035579512045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078456035579512047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7192a1af4545a3a4798e68a11d665324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <miror_rotation>k__BackingField:
+    Guid:
+      Data1: -27085834
+      Data2: 1277378663
+      Data3: 1521632386
+      Data4: -344915641
+    Path: event:/MIROR/miror_rotation
+  <footsteps>k__BackingField:
+    Guid:
+      Data1: 651423723
+      Data2: 1266762377
+      Data3: 110448007
+      Data4: -1988960798
+    Path: event:/PLAYER FOOTSTEPS/footsteps
+  <UI_button>k__BackingField:
+    Guid:
+      Data1: 416766165
+      Data2: 1300969101
+      Data3: -129649782
+      Data4: 479412329
+    Path: event:/UI/UI_button
+  <UI_start>k__BackingField:
+    Guid:
+      Data1: 663426864
+      Data2: 1183564252
+      Data3: 1697490847
+      Data4: -671325631
+    Path: event:/UI/UI_start
+  <sphere_light>k__BackingField:
+    Guid:
+      Data1: 2075844824
+      Data2: 1104018883
+      Data3: 518854064
+      Data4: -361434790
+    Path: event:/SFX/sphere_light
+  <flashlight>k__BackingField:
+    Guid:
+      Data1: -1638871487
+      Data2: 1170838278
+      Data3: 355760565
+      Data4: 689835325
+    Path: event:/SFX/flashlight
+  <loose>k__BackingField:
+    Guid:
+      Data1: -2126189516
+      Data2: 1242959248
+      Data3: -2133910367
+      Data4: -1976141598
+    Path: event:/SFX/loose
+  <win>k__BackingField:
+    Guid:
+      Data1: -1183354963
+      Data2: 1299044588
+      Data3: 2044809883
+      Data4: -791302639
+    Path: event:/SFX/win
+  <music_lvl1>k__BackingField:
+    Guid:
+      Data1: -1249372756
+      Data2: 1293199820
+      Data3: 2046527145
+      Data4: -221075330
+    Path: event:/Music/music_lvl1
+  <music_menu>k__BackingField:
+    Guid:
+      Data1: 1119294629
+      Data2: 1316426213
+      Data3: -255518319
+      Data4: -1142591794
+    Path: event:/Music/music_menu
+--- !u!1 &7078456035585942022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7078456035585942023}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7078456035585942023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078456035585942022}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.94436, y: 3.9823456, z: 56.211193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7078456035579512044}
+  - {fileID: 7078456035570360687}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
